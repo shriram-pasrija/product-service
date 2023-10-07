@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/products/")
+@RequestMapping("/products")
 public class ProductController {
 
     private final ProductService productService;
@@ -32,7 +32,7 @@ public class ProductController {
         return productService.createProduct(createProductDto);
     }
 
-    @GetMapping("category/{categoryName}")
+    @GetMapping("/category/{categoryName}")
     public List<ProductResponseDto> getAllProductsByCategory(@PathVariable("categoryName") String categoryName) throws NotFoundException {
         return productService.getProductsByCategoryName(categoryName);
     }
